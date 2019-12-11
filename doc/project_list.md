@@ -12,4 +12,11 @@
 
    openCV와 머신러닝을 활용하여 실시간 영상에 대해 사용자의 얼굴을 제외한 다른 사람의 얼굴을 모자이크 처리 해주는 어플
 
+4. #### 국내여행 기록지도 어플 - 김동희
+
+   https://www.facebook.com/travelholic1/videos/2238646026421201?vh=e&sfns=mo
+   https://www.youtube.com/watch?v=OwsdnKgknRQ&feature=share
+   
+   위 두가지를 합친 것을 기반으로 여행하는 곳 ㅡ 밥먹고 마저작성
+
    
