@@ -263,7 +263,7 @@
 
     4.  작동 테스트
 
-       ![image-20191213151415267](image/4_화면전환/image-20191213151415267.png)
+       ![image-20191213151415267](image/4_change_activity/image-20191213151415267.png)
 
-       ![image-20191213151434750](image/4_화면전환/image-20191213151434750.png)
+       ![image-20191213151434750](image/4_change_activity/image-20191213151434750.png)
 
