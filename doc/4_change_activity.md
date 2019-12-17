@@ -267,3 +267,203 @@
 
        ![image-20191213151434750](image/4_change_activity/image-20191213151434750.png)
 
+
+
+
+
+
+
+
+
+
+
+
+
+#### 4-3 인텐트 살펴보기
+
+- 인텐트란 ? 
+
+  : 앱 구성 요소 간에 작업 수행을 위한 정보를 전달하는 역할을 한다.
+
+  ex )  바로 위에서 설명한 **"간단한 Activity 전환 예제 코드"**의 경우 startActivity()메서드를 호출하면서 인텐트가 시스템에 전달되어, 시스템이 그 인텐트 안에 들어있는 명령을 확인해 액티비티를 띄움!
+
+  
+
+- 인텐트 구성요소
+
+  : 액션, 범주, 타입, 컴포넌트, 데이터 등등 ...
+
+  - 액션
+
+    :  수행할 기능을 의미한다.
+
+    * Intent.ACTION_VIEW - 정보를 사용자에게 보여주고자 할 때. 
+
+      ​	ex ) 사진을 갤러리 앱에서 보기 
+
+    * Intent.ACTION_SEND - 다른 앱을 통해 데이터를 공유하고자 할 때.
+
+      ​    ex ) 소셜 공유 앱 공유하기
+
+    * [다양한 인텐트 액션 확인하기](https://comxp.tistory.com/243)
+
+    ```java
+    // 예시
+    Intent intent = new Intent(Intent.ACTION_VIEW)
+    ```
+
+  - 범주
+
+    : 액션이 실행되는데 필요한 추가적인 정보를 제공한다.
+
+    (대부분의 경우 카테고리를 필요로 하지 않음.)
+
+    ```java
+    Intent intent = new Intent();
+    intent.addCategory(Intent.CATEGORY_APP_BROWSER);	// 인텐트 객체에 카테고리 타입설정 
+    ```
+
+  - 타입 
+
+    : 인텐트에 들어가는 데이터의 MIME 타입을 명시적으로 지정한다.
+
+    : "http://" 또는 "video/mp4" 등과 같은 데이터 타입을 표현한다.
+
+    ```JAVA
+    // MIME 타입 설정
+    Intent intent = new Intent()
+    intent.setType("video/mp4")		// 인텐트 객체에 MIME 타입 설정
+    ```
+
+  - 컴포넌트
+
+    : 인텐트에 사용될 컴포넌트 클래스 이름을 명시적으로 지정한다.
+
+    : 파라미터는 ("패키지이름" , "패키지이름 + 클래스이름")
+
+    ```java
+    Intent intent = new intent();
+    ComponentName name = new ComponentName("com.example.test","com.example.test.testActivity"); 
+    // 컴포넌트 이름을 지정할 수 있는 객체 생성
+    
+    intent.setComponent(name)	// 인텐트 객체에 컴포넌트 설정
+    startAvtivity(intent)
+    ```
+
+  - 데이터
+
+    : 액션에 관련된 데이터의 URI와 그 데이터에 대한 MIME타입을 말한다.
+
+    ```java
+    Intent intent = new Intent();
+    Uri uri = new Uri.parse("content://com.example.project/etc");
+    intent.setData(uri)	// 인텐트 객체에 uri 설정
+    ```
+
+    * URI가 비슷한 이미지나 동영상의 경우에 MIME 타입 이용한다.
+
+    * MIME 타입을 URI 로 부터 추론할 수 있는 경우도 있다.
+
+      EX) URI가 content:로 시작하면 디바이스의 로컬 저장소에 저장된 데이터라고 추론
+
+      
+
+  ​     [ 액션, 플레그, 카테고리 종류 확인 하기 ](https://kairo96.gitbooks.io/android/content/ch2.8.html) 
+
+  
+
+- 인텐트의 종류
+
+  : 명시적 인텐트, 암시적 인텐트 
+
+  1. 명시적 인텐트 
+
+     : 인텐트에 클래스 객체나 컴포넌트 이름을 지정하여 호출할 대상을 확실히 알 수 있는 경우
+
+      위에  **간단한 Activity 전환 예제 코드** 설명에서 확인할 수 있다.
+
+     ```JAVA
+     Intent intent = new Intent(this, TestActivity.class);
+     startActivity(intent);
+     ```
+
+     
+
+  2. 암시적 인텐트
+
+     : 액션과 데이터를 지정하긴 했지만 호출할 대상이 달라질 수 있는 경우
+
+     ```java
+     String data = editText.getText().toString();	// 입력상자에서 DATA 받기
+     
+     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data));
+     startActivity(intent)
+     ```
+
+     ->  MIME타입에 따라 시스템에서 적절한 다른 앱의 액티비티를 찾은 후 띄우는 방식
+
+     * 간단한 예제 코드
+
+       1.  Activity_main.xml
+
+       ```java
+       <?xml version="1.0" encoding="utf-8"?>
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:app="http://schemas.android.com/apk/res-auto"
+           xmlns:tools="http://schemas.android.com/tools"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           tools:context=".MainActivity">
+       
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="tel:010-5555-1055"
+               android:id="@+id/edittext"
+               android:textSize="30sp"/>
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/button"
+               android:text="전화걸기"/>
+       
+       </LinearLayout>
+       ```
+
+       2. MainAcitvity.java
+
+       ```java
+       public class MainActivity extends AppCompatActivity {
+           EditText editText;
+       
+           @Override
+           protected void onCreate(Bundle savedInstanceState) {
+               super.onCreate(savedInstanceState);
+               setContentView(R.layout.activity_main);
+       
+               editText = (EditText)findViewById(R.id.edittext);
+               Button button = (Button)findViewById(R.id.button);
+               button.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       String tel = editText.getText().toString();
+       
+                       Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tel));
+                       startActivity(intent);
+                   }
+               });
+       
+           }
+       }
+       
+       ```
+
+       3. 작동 테스트
+
+![image-20191217182212935](image/4_change_activity/image-20191217182212935.png)
+
+
+
+![image-20191217183057990](image/4_change_activity/image-20191217183057990.png)
+
