@@ -105,8 +105,8 @@ XML로 정의된 앱 위젯의 초기 레이아웃을 정의한다.
         android:minHeight="40dp"
         android:updatePeriodMillis="43200000"
         android:previewImage="@drawable/preview"
-        android:initialLayout="@layout/example_appwidget"
-        android:configure="com.example.android.DaigakuAppWidgetConfigure"
+        android:initialLayout="@layout/daigaku_appwidget"
+        android:configure="com.daigaku.android.DaigakuAppWidgetConfigure"
         android:resizeMode="horizontal|vertical"
         android:widgetCategory="home_screen">
     </appwidget-provider>
