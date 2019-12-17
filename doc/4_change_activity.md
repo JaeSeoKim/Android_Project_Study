@@ -461,9 +461,9 @@
 
        3. 작동 테스트
 
-![image-20191217182212935](image/4_change_activity/image-20191217182212935.png)
+     ![image-20191217182212935](image/4_change_activity/image-20191217182212935.png)
 
 
 
-![image-20191217183057990](image/4_change_activity/image-20191217183057990.png)
+​											  ![image-20191217183057990](image/4_change_activity/image-20191217183057990.png)
 
