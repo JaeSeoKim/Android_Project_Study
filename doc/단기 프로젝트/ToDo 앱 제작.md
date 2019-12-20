@@ -4,7 +4,7 @@
 
 ##### original Source by - [ToDoList](https://github.com/eddydn/ToDoList)
 
-##### 이해를 위한 주석및 소스 코드 일부 수정 -  [소스파일](src/ToDoList-edit.zip)
+##### 이해를 위한 주석및 소스 코드 일부 수정 -  [소스파일](https://github.com/JaeSeoKim/Android_Project_Study/tree/master/doc/단기%20프로젝트/src/ToDoList-edit.zip)
 
 ## ToDo 어플 기능 추가 구현
 
