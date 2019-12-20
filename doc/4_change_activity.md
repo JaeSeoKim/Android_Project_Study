@@ -12,17 +12,17 @@
 
   setContentView()
 
-  :  메인 레이아웃을 설정하는 역할만을 수행한다.  -> 부분 레이아웃은 메모리에 객체화 시킬 수 없다.
+  :  메인 레이아웃을 설정하는 역할 만을 수행한다.  -> 부분 레이아웃은 메모리에 객체화 시킬 수 없다.
 
   ex) Activity에서 onCreate 함수가 실행 될 때 Rayout을 정의 하여 사용
 
   ```java
   @Override
-      protected void onCreate(Bundle savedInstanceState) {
-          super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_main);
-          //activity_main이라는 layout를 ContentView로 정의
-      }
+  protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      //activity_main이라는 layout를 ContentView로 정의
+  }
   ```
 
   
@@ -285,7 +285,7 @@
 
   : 앱 구성 요소 간에 작업 수행을 위한 정보를 전달하는 역할을 한다.
 
-  ex )  바로 위에서 설명한 **"간단한 Activity 전환 예제 코드"**의 경우 startActivity()메서드를 호출하면서 인텐트가 시스템에 전달되어, 시스템이 그 인텐트 안에 들어있는 명령을 확인해 액티비티를 띄움!
+  ex )  바로 위에서 설명한 **"간단한 Activity 전환 예제 코드"** 의 경우 startActivity()메서드를 호출하면서 인텐트가 시스템에 전달되어, 시스템이 그 인텐트 안에 들어있는 명령을 확인해 액티비티를 띄움!
 
   
 
@@ -364,13 +364,11 @@
 
     * MIME 타입을 URI 로 부터 추론할 수 있는 경우도 있다.
 
-      EX) URI가 content:로 시작하면 디바이스의 로컬 저장소에 저장된 데이터라고 추론
+      EX) URI가 content:로 시작하면 디바이스의 로컬 저장소에 저장된 데이터를 불러온다.
 
+      [ 액션, 플레그, 카테고리 종류 확인 하기 ](https://kairo96.gitbooks.io/android/content/ch2.8.html) 
+    
       
-
-  ​     [ 액션, 플레그, 카테고리 종류 확인 하기 ](https://kairo96.gitbooks.io/android/content/ch2.8.html) 
-
-  
 
 - 인텐트의 종류
 
@@ -465,3 +463,40 @@
        ![image-20191217182212935](image/4_change_activity/image-20191217182212935.png)
        
        ![image-20191217183057990](image/4_change_activity/image-20191217183057990.png)
+  
+  
+  
+  
+
+#### 4-4. 플래그와 부가 데이터 사용하기
+
+- Intent flag란 ?
+
+  : flag을 이용하여 Back Stack내 액티비티의 흐름을 제어가 가능하다.
+
+  ex) FLAG_ACTIVITY_CLRAR_TOP을 사용하여 BackStack내의 액티비티의 흐름 제어 
+
+  ![image-20191220094039654](image/4_change_activity/image-20191220094039654.png)
+
+- manifest에 flag 정의 하기
+
+    [Andorid-task-and-back-stack 레퍼런스 가이드](https://developer.android.com/guide/components/activities/tasks-and-back-stack)를 보면 다양한 속성을 제공 하고 있는데 일단 자주 사용 되는 **[`launchMode`](https://developer.android.com/guide/topics/manifest/activity-element.html#lmode)**을 이용하여 정의한다.
+
+    ```xml
+    <activity android:name=".MainActivity" 
+              android:launchMode="singleTop">
+    ```
+
+    이때 사용 가능한 FLAG는 총 4 가지가 존재 한다.
+
+    1. **standard** (default)
+
+       스택중 어느곳에나 위치 가능하며 **여러개의 인스턴스가 생성가능**
+
+    2. **singleTop**
+    
+       
+    
+    3. 
+    
+    4.  
