@@ -6,7 +6,7 @@
 
 [2. 스터디 일정!](./doc/study_schedule.md)
 
-    [각자 공부한 내용 정리 및 발표 자료](https://github.com/JaeSeoKim/Android_Project_Study/tree/master/doc/학습 및 발표/)
+    [각자 공부한 내용 정리 및 발표 자료](https://github.com/JaeSeoKim/Android_Project_Study/tree/master/doc/학습%20및%20발표/)
 
-[3. 단기 프로젝트 - ToDo App 제작](./doc/단기%20프로젝트/ToDo 앱 제작.md)
+[3. 단기 프로젝트 - ToDo App 제작](./doc/단기%20프로젝트/ToDo%20앱%20제작.md)
 
